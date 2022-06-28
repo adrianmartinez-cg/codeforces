@@ -3,11 +3,14 @@ import java.util.Arrays;
 
 public class DivideThreeMultTwo {
     /*
+    Problem: 
     Your problem is to rearrange (reorder) elements of this sequence in such a way that
     it can match possible Polycarp's game in the order of the numbers written on the board.
     I.e. each next number will be exactly two times of the previous number or exactly one third
     of previous number.
     It is guaranteed that the answer exists.
+
+    Author : Pedro Adrian
      */
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
