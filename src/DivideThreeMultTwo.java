@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class DivideThreeMultTwo {
     /*
-    Problem: 
+    Problem:
     Your problem is to rearrange (reorder) elements of this sequence in such a way that
     it can match possible Polycarp's game in the order of the numbers written on the board.
     I.e. each next number will be exactly two times of the previous number or exactly one third
@@ -18,16 +18,16 @@ public class DivideThreeMultTwo {
         sc.nextLine();
         String arrayAsStr = sc.nextLine(); // Input 2
         String[] arrayNumsStr = arrayAsStr.split(" ");
-        int[] array = Arrays.stream(arrayNumsStr)
-                            .mapToInt(Integer::parseInt)
-                            .toArray();
-        int[] answer = solve(n,array);
-        System.out.println(Arrays.toString(answer));
+        long[] array = Arrays.stream(arrayNumsStr)
+                             .mapToLong(Long::parseLong)
+                             .toArray();
+        long[] answer = solve(n,array);
+        showAnswer(answer);
 
     }
-    private static int[] solve(int n, int[] array){
-        int[] answer = new int[n];
-        int[] antecessors = new int[n];
+    private static long[] solve(int n, long[] array){
+        long[] answer = new long[n];
+        long[] antecessors = new long[n];
         int first = 0;
         for(int i = 0 ; i < n ; i++) {
             boolean foundAntecessor = false;
@@ -60,5 +60,12 @@ public class DivideThreeMultTwo {
             }
         }
         return answer;
+    }
+
+    private static void showAnswer(long[] array){
+        for(long number:array){
+            System.out.print(number + " ");
+        }
+        System.out.print("\n");
     }
 }
