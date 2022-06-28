@@ -23,38 +23,38 @@ public class DivideThreeMultTwo {
                              .toArray();
         long[] answer = solve(n,array);
         showAnswer(answer);
-
     }
     private static long[] solve(int n, long[] array){
         long[] answer = new long[n];
-        long[] antecessors = new long[n];
+        long[] predecessors = new long[n];
         int first = 0;
         for(int i = 0 ; i < n ; i++) {
-            boolean foundAntecessor = false;
+            boolean foundPredecessor = false;
             for (int j = 0; j < n; j++) {
                 if (i != j) {
                     if (array[i] == array[j] * 2 || array[i] == array[j] / 3) {
-                        antecessors[i] = j;
-                        foundAntecessor = true;
+                        predecessors[i] = j;
+                        foundPredecessor = true;
                         break;
                     }
                 }
             }
-            if (!foundAntecessor) {
+            if (!foundPredecessor) {
                 answer[0] = array[i];
                 first = i;
-                antecessors[i] = -1;
+                predecessors[i] = -1;
             }
         }
-        int subIndexInAnswer = 1;
-        int nextIndexToFind = first;
+        
+        int nextAnswerIndex = 1;
+        int nextPredecessorToFind = first;
 
-        for(int k = subIndexInAnswer; k < n; k++){
+        for(int k = nextAnswerIndex; k < n; k++){
             for (int i =0; i<n; i++){
-                if(antecessors[i] == nextIndexToFind){
-                    answer[subIndexInAnswer] = array[i];
-                    nextIndexToFind = i;
-                    subIndexInAnswer++;
+                if(predecessors[i] == nextPredecessorToFind){
+                    answer[nextAnswerIndex] = array[i];
+                    nextPredecessorToFind = i;
+                    nextAnswerIndex++;
                     break;
                 }
             }
