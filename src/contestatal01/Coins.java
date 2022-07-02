@@ -1,7 +1,9 @@
+package contestatal01;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Coins {
+    // Author : Pedro Adrian
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String inputStr = sc.nextLine();
@@ -36,7 +38,8 @@ public class Coins {
         if(partialSum + maxCoin <= s){
             return maxCoin;
         } else {
-            return select(coins,i-1,partialSum,s);
+            long diff = s - partialSum;
+            return coins[(int)diff-1];
         }
     }
 }

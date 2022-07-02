@@ -1,3 +1,4 @@
+package contestatal01;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -61,20 +62,6 @@ public class DivideThreeMultTwo {
             }
         }
         return answer;
-    }
-
-    private static Long[] solve(int n, long[] array){
-        LinkedList<Long> answer = new LinkedList<>();
-        for(int i=0; i<n;i++){
-            for(int j=0; j<n; j++){
-                if(i != j){
-                    if (array[i] == array[j] * 2 || array[i] == array[j] / 3){
-
-                    }
-                }
-            }
-        }
-        return answer.toArray(new Long[0]);
     }
 
     private static void showAnswer(long[] array){
