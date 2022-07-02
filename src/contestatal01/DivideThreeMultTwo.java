@@ -23,10 +23,10 @@ public class DivideThreeMultTwo {
         long[] array = Arrays.stream(arrayNumsStr)
                              .mapToLong(Long::parseLong)
                              .toArray();
-        long[] answer = solveA(n,array);
+        long[] answer = solve(n,array);
         showAnswer(answer);
     }
-    private static long[] solveA(int n, long[] array){
+    private static long[] solve(int n, long[] array){
         long[] answer = new long[n];
         long[] predecessors = new long[n];
         int first = 0;
