@@ -1,24 +1,23 @@
-def greedy(n,s):
+def greedyAlg(n,s):
     coins = []
-    for i in range(1,n+1):
-        coins.append(i)
+    for k in range(1,n+1):
+        coins.append(k)
     sum = 0
-    coinIndex = len(coins)-1
+    nextCoinIndex = len(coins)-1
     numOfCoins = 0
     while(sum < s):
-        nextCoin = coins[coinIndex]
+        nextCoin = coins[nextCoinIndex]
         if(sum + nextCoin <= s):
             sum += nextCoin
             numOfCoins += 1
         else:
-            diff = s-sum 
-            nextCoin = coins[diff-1]
+            nextCoinIndex = (s-sum)-1 
+            nextCoin = coins[coinIndex]
             sum += nextCoin 
             numOfCoins += 1
     return numOfCoins     
 
-if __name__ == "__main__":
-    inputStr = input ("")
-    input = inputStr.split(" ")
-    answer = greedy (int(input[0]), int(input[1]))
-    print(answer)
+inputStr = input ("")
+input = inputStr.split(" ")
+answer = greedyAlg(int(input[0]), int(input[1]))
+print(answer)
