@@ -1,27 +1,12 @@
-def searchNext(visited,answer,i,n):
-    if i == n:
-        mappedToStr = [str(x) for x in answer]
-        ansToStr.append(mappedToStr)
-        return
-    else:
-        for elem in A:
-            if elem not in visited: 
-                if (answer[i-1] == 3*elem or answer[i-1]== elem/2):
-                    answer[i] = elem
-                    searchNext(visited.union({elem}),answer, i+1, n)
+def divByThree(num):
+    res = 0
+    while(num%3 == 0):
+        res+=1
+        num /= 3
+    return res
 
-
-n = int(input())
-arrayAsStr = input().split()
-A = [int(x) for x in arrayAsStr]
-ans = []
-for i in range(n):
-    ans.append(0)
-ansToStr= []
-
-for elem in A:
-    ans[0] = elem
-    visited = {elem}
-    searchNext(visited,ans,1,n)
-
-print (" ".join(ansToStr[0]))
+if __name__ == "__main__":
+    n = int(input())
+    A = list(map(int, input().split()))
+    A.sort(key = lambda x : (divByThree(x), -x ),reverse = True)
+    print(" ".join(list(map(str,A))))
