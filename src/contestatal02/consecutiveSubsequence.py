@@ -1,10 +1,10 @@
 def printIndexes(indexes):
     toString = ""
-    for i in range(len(indexes)):
+    for i in range(len(indexes)-1,-1,-1):
         toString+= str(indexes[i])
-        if i != len(indexes) - 1:
+        if i != 0:
             toString+=" "
-    return toString
+    print(toString)
 
 def findConsecutiveSubsequence(A,n):
     maxSsElem = {} # Holds the value of the maximum subsequence that can be formed with a certain element of A
@@ -21,10 +21,19 @@ def findConsecutiveSubsequence(A,n):
             k = maxSsElem[elem]
             last = elem
 
-    for index in range(last-k+1,last+1):
-        indexes.append(index)
-    
-    return k,indexes
+    next = last 
+    elemsLeft = k
+
+    for i in range(len(A)-1,-1,-1):
+        if(A[i] == next):
+            if (elemsLeft > 0):
+                indexes.append(i+1)
+                next -= 1
+                elemsLeft -=1
+            else:
+                break 
+        
+    return k , indexes
 
 # Author: Pedro Adrian Pereira
 # Problem: Consecutive subsequence
