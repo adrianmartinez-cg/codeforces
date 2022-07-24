@@ -4,7 +4,6 @@ def showRaylor(pop,dur,n,t):
     rec = {}
     for i in range(len(pop)):
         v.append(pop[i]/dur[i])
-    popSorted = [x for _,x in sorted(zip(v,pop),reverse=True)]
     durSorted = [x for _,x in sorted(zip(v,dur),reverse=True)]
 
     tempo = 0
